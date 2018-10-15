@@ -1,6 +1,6 @@
 # angular-cropperjs
 
-[CropperJS](https://fengyuanchen.github.io/cropperjs/) integration for Angular 2/4
+[CropperJS](https://fengyuanchen.github.io/cropperjs/) integration for Angular +6
  
 ## How to use
 
@@ -59,12 +59,12 @@ Use @ViewChild in your component to get the element:
 ```js
 
 //
-// Import AngularCropperjsComponent
-import { AngularCropperjsComponent } from 'angular-cropperjs';
+// Import CropperComponent
+import { CropperComponent } from 'angular-cropperjs';
 
 //
 // Get with @ViewChild
-@ViewChild('angularCropper') public angularCropper: AngularCropperjsComponent;
+@ViewChild('angularCropper') public angularCropper: CropperComponent;
 ```
 
 Then just call the CropperJS method you want:
