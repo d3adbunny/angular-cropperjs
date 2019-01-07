@@ -55,6 +55,7 @@ export class AngularCropperjsComponent {
 
     @Output() export = new EventEmitter<ImageCropperResult>();
     @Output() ready = new EventEmitter();
+    @Output() cropStart = new EventEmitter();
 
 
     /*--------  Properties  --------*/
@@ -107,6 +108,23 @@ export class AngularCropperjsComponent {
             }
         });
 
+        // Image on action event
+        image.addEventListener('cropstart', function () {
+            this.cropStart.emit(true);
+        });
+        // Image on action event
+        image.addEventListener('cropmove', function () {
+            this.cropStart.emit(true);
+        });
+        // Image on action event
+        image.addEventListener('cropend', function () {
+            this.cropStart.emit(true);
+        });
+        // Image on action event
+        image.addEventListener('crop', function () {
+            this.cropStart.emit(true);
+        });
+
         //
         // Setup aspect ratio according to settings
         let aspectRatio = NaN;
@@ -129,7 +147,9 @@ export class AngularCropperjsComponent {
 
         //
         // Set cropperjs
-        this.cropper = new Cropper(image, this.cropperOptions);
+        if (!this.cropper) {
+            this.cropper = new Cropper(image, this.cropperOptions);
+        }
     }
 
     /**
